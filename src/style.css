@@ -27,3 +27,16 @@
     transition: background-color 0.3s ease;
 }
 
+.characters {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.characters > li {
+    flex: 1 1 calc(33.333% - 16px);
+    box-sizing: border-box;
+    text-align: center;
+}
+
