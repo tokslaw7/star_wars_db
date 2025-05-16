@@ -25,3 +25,4 @@ document.addEventListener("DOMContentLoaded", function(){
 //Displaying the characters
 const results = document.getElementById("results");
 
+
