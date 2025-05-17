@@ -1,4 +1,6 @@
 # A Character Database
+> This project is establishing a connection with an API, providing a way to view groups or see each piece of data, search for something, and how to use JavaScript to render elements on to the DOM.
+
 
 ## Features
 - A search bar
