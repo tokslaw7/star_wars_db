@@ -11,12 +11,12 @@ searchInput.addEventListener("input", function (e) {
   /** Get the value of the input*/ 
   const input = e.target.value;
   console.log(input);
-  /** pass the input that is being typed to the search input
-  searchForCharacter(input);
-   */
-  debouncedCharacterSearch(input);
-
+  /** pass the input that is being typed to the search input*/
+  if(input.length >= 1){
+  debouncedCharacterSearch(input)
+}
 })
+
 /** Grabbing the data using fetch - displaying on usersView */
 document.addEventListener("DOMContentLoaded", function(){
   fetch(`https://swapi.py4e.com/api/people`).then(resp => resp.json()).then(data => {
