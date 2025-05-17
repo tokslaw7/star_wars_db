@@ -1,3 +1,8 @@
+const dialog = document.getElementById("popup-dialog");
+const characterTitle = document.getElementById("character-title");
+const dialogContent = document.getElementById("dialog-content");
+const closeDialogButton = document.getElementById("close-dialog");
+
 /** Getting the search input */
 const searchInput = document.getElementById("search-input");
 
