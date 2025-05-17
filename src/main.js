@@ -111,5 +111,23 @@ function openCharacterDialog(characterApiUrl) {
   });
 }
 
+// Close the dialog when clicking outside of it
+dialog.addEventListener('click', (event) => {
+  if (event.target === dialog) {
+    dialog.close();
+  }
+});
+
+//When the dialog closes, we reset it back to it's original state
+dialog.addEventListener("close", () => {
+  characterTitle.innerText = "";
+  dialogContent.innerHTML = "Loading...";
+})
+
+// Close the dialog when the close button is clicked within the dialog element
+closeDialogButton.addEventListener('click', () => {
+  dialog.close();
+});
+
 
 
