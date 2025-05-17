@@ -67,7 +67,7 @@ const debouncedCharacterSearch = debounce(searchForCharacter, 500)
 
 function displayCharacters(characters){
   const listOfCharacterNames = characters.map(character => {
-    return `<li>${character.name}</li>`
+   return `<li><a data-url="${character.url}">${character.name}</a></li>`
   }).join(" ");
 
   results.innerHTML = `<ul class="characters">${listOfCharacterNames}</ul>`;
