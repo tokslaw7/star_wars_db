@@ -53,10 +53,19 @@ function debounce(func, wait) {
 
 /** Search functionality */
 async function searchForCharacter(query) {
-  const characterData = await fetch(`https://swapi.py4e.com/api/people?search=${query}`).then(resp => resp.json());
-	console.log(characterData);
-/** Showing search results */
+  try {
+    const characterData = await fetch(`https://swapi.py4e.com/api/people?search=${query}`).then(resp => resp.json());
+    console.log(characterData);
+  /** Showing search results */
+/** Opening of searchForCharacter function */
+  if (characterData.count >= 1) {
   displayCharacters(characterData.results)
+  }else {
+  displayError();
+}}catch(e){
+    console.err(e);
+    displayError();
+  }
 }
 
 const debouncedCharacterSearch = debounce(searchForCharacter, 500)
@@ -107,8 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
     displayError();
   })
 })
-
-
 
 /** Pop-up Dialog */
 function openCharacterDialog(characterApiUrl) {
