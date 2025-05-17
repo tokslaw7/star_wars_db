@@ -6,8 +6,11 @@ searchInput.addEventListener("input", function (e) {
   /** Get the value of the input*/ 
   const input = e.target.value;
   console.log(input);
-  /** pass the input that is being typed to the search input */
-  searchForCharacter(input)
+  /** pass the input that is being typed to the search input
+  searchForCharacter(input);
+   */
+  debouncedCharacterSearch(input);
+
 })
 /** Grabbing the data using fetch - displaying on usersView */
 document.addEventListener("DOMContentLoaded", function(){
@@ -52,12 +55,13 @@ async function searchForCharacter(query) {
 }
 
 
+const debouncedCharacterSearch = debounce(searchForCharacter, 500)
 
 
 
 
 function displayCharacters(characters){
-  const listOfCharacterNames = data.results.map(character => {
+  const listOfCharacterNames = characters.map(character => {
     return `<li>${character.name}</li>`
   }).join(" ");
 
