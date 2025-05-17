@@ -59,11 +59,7 @@ async function searchForCharacter(query) {
   displayCharacters(characterData.results)
 }
 
-
 const debouncedCharacterSearch = debounce(searchForCharacter, 500)
-
-
-
 
 function displayCharacters(characters){
   const listOfCharacterNames = characters.map(character => {
@@ -73,11 +69,12 @@ function displayCharacters(characters){
   results.innerHTML = `<ul class="characters">${listOfCharacterNames}</ul>`;
   /** Get all the characters in the Characters list (as created above) */
   const links = document.querySelectorAll('.characters a');
+
   /** For each link, lets add an event listener that listens for the click event.*/
     links.forEach(link => {
       link.addEventListener('click', () => {
         const characterUrl = link.getAttribute('data-url');
-        console.log(characterUrl);
+        openCharacterDialog(characterUrl);
       });
     });
 }
