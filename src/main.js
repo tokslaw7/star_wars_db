@@ -93,5 +93,26 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 
+function openCharacterDialog(characterApiUrl) {
+  /** Open the dialog */
+  dialog.showModal();
+
+  /** Fetch and display data */
+  fetch(characterApiUrl).then(resp => resp.json()).then(data => {
+    characterTitle.innerText = data.name;
+
+    /** Adding the character data as HTML dynamically */
+      dialogContent.innerHTML = `
+      <p><strong>Height:</strong> ${data.height}</p>
+      <p><strong>Mass:</strong> ${data.mass}</p>
+      <p><strong>Gender:</strong> ${data.gender}</p>
+      `;
+  }).catch(err => {
+    console.log(err);
+    /** If the fetch fails overall, then we will display this message */
+      dialogContent.innerHTML = 'Failed to load data.';
+  });
+}
+
 
 
