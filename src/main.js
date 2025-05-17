@@ -89,7 +89,28 @@ document.addEventListener("DOMContentLoaded", function () {
   })
 })
 
+/**  Display error*/
+function displayError() {
+  results.innerHTML = "<ul class='characters'><li>The characters you seek are not here</li></ul>"
+}
 
+document.addEventListener("DOMContentLoaded", function () {
+  fetch(`https://swapi.py4e.com/api/people`).then(resp => resp.json()).then(data => {
+    console.log(data)
+      if (data.count >= 1) {
+        displayCharacters(data.results)
+      }else {
+        displayError();
+      }
+  }).catch(e => {
+    console.err(e);
+    displayError();
+  })
+})
+
+
+
+/** Pop-up Dialog */
 function openCharacterDialog(characterApiUrl) {
   /** Open the dialog */
   dialog.showModal();
