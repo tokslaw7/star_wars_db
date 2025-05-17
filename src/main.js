@@ -71,6 +71,15 @@ function displayCharacters(characters){
   }).join(" ");
 
   results.innerHTML = `<ul class="characters">${listOfCharacterNames}</ul>`;
+  /** Get all the characters in the Characters list (as created above) */
+  const links = document.querySelectorAll('.characters a');
+  /** For each link, lets add an event listener that listens for the click event.*/
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        const characterUrl = link.getAttribute('data-url');
+        console.log(characterUrl);
+      });
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
